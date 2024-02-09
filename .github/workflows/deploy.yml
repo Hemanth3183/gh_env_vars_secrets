@@ -9,12 +9,12 @@ env:
   MONGODB_DB_NAME: hemidemo
 jobs:
   test:
+    environment: demo
     env:
       MONGODB_PASSWORD: ${{ secrets.passwd }}
       MONGODB_USERNAME: ${{ secrets.user }}
       MONGODB_CLUSTER_ADDRESS: cluster0.awflcyp.mongodb.net
       PORT: 8080
-    environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
@@ -40,4 +40,5 @@ jobs:
     steps:
       - name: Output information
         run: |        
-          echo "..."
+          echo "Mongo DB user: "${{ env.MONGODB_USERNAME }}""
+          echo "Mongo DB name: "${{ env.MONGODB_DB_NAME }}""
