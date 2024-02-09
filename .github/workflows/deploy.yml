@@ -34,6 +34,7 @@ jobs:
         run: |
           echo "Mongo DB user: "${{ env.MONGODB_USERNAME }}""
           echo "Mongo DB name: "${{ env.MONGODB_DB_NAME }}""
+          echo "Mongo DB password: "${{ secrets.MONGODB_PASSWORD }}""
   deploy:
     needs: test
     runs-on: ubuntu-latest
