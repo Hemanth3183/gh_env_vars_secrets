@@ -11,8 +11,8 @@ jobs:
   test:
     env:
       MONGODB_PASSWORD: Gunashree_02
-      MONGODB_USERNAME: hemiadm
-      MONGODB_CLUSTER_ADDRESS: cluster0.awflcyp.mongodb.net
+      MONGODB_USERNAME: ${{ secrets.user }}
+      MONGODB_CLUSTER_ADDRESS: ${{ secrets.passwd }}
       PORT: 8080
     environment: testing
     runs-on: ubuntu-latest
@@ -32,8 +32,8 @@ jobs:
         run: npm test
       - name: Output information
         run: |
-          echo "Mongo DB user: ${{ env.MONGODB_USERNAME }}"
-          echo "Mongo DB name: ${{ env.MONGODB_DB_NAME }}"
+          echo "Mongo DB user: "${{ env.MONGODB_USERNAME }}""
+          echo "Mongo DB name: "${{ env.MONGODB_DB_NAME }}""
   deploy:
     needs: test
     runs-on: ubuntu-latest
