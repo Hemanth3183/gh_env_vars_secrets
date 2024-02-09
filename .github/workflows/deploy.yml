@@ -10,7 +10,7 @@ env:
 jobs:
   test:
     env:
-      MONGODB_PASSWORD: {${{ secrets.passwd}}}
+      MONGODB_PASSWORD: ${{ secrets.passwd }}
       MONGODB_USERNAME: ${{ secrets.user }}
       MONGODB_CLUSTER_ADDRESS: cluster0.awflcyp.mongodb.net
       PORT: 8080
