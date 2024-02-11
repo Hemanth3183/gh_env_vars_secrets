@@ -9,28 +9,29 @@ env:
   MONGODB_DB_NAME: hemidemo
 jobs:
   test:
-    environment: demo
     container: node:20
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_PASSWORD: Gunashree_02
+      MONGODB_PASSWORD: example
       MONGODB_USERNAME: root
-      MONGODB_CLUSTER_ADDRESS: mongodb
+      MONGODB_CLUSTER_ADDRESS: http://127.0.0.1:27017
       PORT: 8080
     runs-on: ubuntu-latest
     services:
       mongodb:
         image: mongo
+        ports:
+          - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
-          MONGO_INITDB_ROOT_PASSWORD: Gunashree_02
+          MONGO_INITDB_ROOT_PASSWORD: example
     steps:
       - name: Get Code
         uses: actions/checkout@v4
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
-          path: node_modules
+          path: ~/.npm
           key: npm-deps-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
         run: npm ci
