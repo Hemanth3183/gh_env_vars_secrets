@@ -11,12 +11,20 @@ jobs:
   test:
     environment: demo
     env:
+      MONGODB_CONNECTION_PROTOCOL: mongodb
       MONGODB_PASSWORD: ${{ secrets.passwd }}
       MONGODB_USERNAME: ${{ secrets.user }}
-      MONGODB_CLUSTER_ADDRESS: cluster0.awflcyp.mongodb.net
+      MONGODB_CLUSTER_ADDRESS: mongodb
       PORT: 8080
     runs-on: ubuntu-latest
-    container: node:20
+    container: 
+      image: node:20
+    services:
+      mongodb:
+        image: mongodb
+        env:
+          MONGO_INITDB_ROOT_USERNAME: ${{ secrets.user }}
+          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.passwd }}
     steps:
       - name: Get Code
         uses: actions/checkout@v4
