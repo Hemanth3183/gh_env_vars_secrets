@@ -21,7 +21,7 @@ jobs:
       image: node:20
     services:
       mongodb:
-        image: mongodb
+        image: mongo
         env:
           MONGO_INITDB_ROOT_USERNAME: ${{ secrets.user }}
           MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.passwd }}
