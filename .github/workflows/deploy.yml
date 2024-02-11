@@ -10,8 +10,7 @@ env:
 jobs:
   test:
     environment: demo
-    container: 
-      image: node:20
+    container: node:20
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
       MONGODB_PASSWORD: Gunashree_02
