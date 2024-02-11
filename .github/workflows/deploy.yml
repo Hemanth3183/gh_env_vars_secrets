@@ -9,7 +9,7 @@ env:
   MONGODB_DB_NAME: hemidemo
 jobs:
   test:
-    container: node:20
+    # container: node:20
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
       MONGODB_PASSWORD: example
