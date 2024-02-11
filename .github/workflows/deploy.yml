@@ -12,8 +12,8 @@ jobs:
     environment: demo
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
-      MONGODB_PASSWORD: ${{ secrets.passwd }}
-      MONGODB_USERNAME: ${{ secrets.user }}
+      MONGODB_PASSWORD: Gunashree_02
+      MONGODB_USERNAME: hemiadm
       MONGODB_CLUSTER_ADDRESS: mongodb
       PORT: 8080
     runs-on: ubuntu-latest
@@ -23,8 +23,8 @@ jobs:
       mongodb:
         image: mongo
         env:
-          MONGO_INITDB_ROOT_USERNAME: ${{ secrets.user }}
-          MONGO_INITDB_ROOT_PASSWORD: ${{ secrets.passwd }}
+          MONGO_INITDB_ROOT_USERNAME: hemiadm
+          MONGO_INITDB_ROOT_PASSWORD: Gunashree_02
     steps:
       - name: Get Code
         uses: actions/checkout@v4
