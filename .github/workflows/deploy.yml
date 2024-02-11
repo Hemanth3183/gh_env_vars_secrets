@@ -10,6 +10,8 @@ env:
 jobs:
   test:
     environment: demo
+    container: 
+      image: node:20
     env:
       MONGODB_CONNECTION_PROTOCOL: mongodb
       MONGODB_PASSWORD: Gunashree_02
@@ -17,8 +19,6 @@ jobs:
       MONGODB_CLUSTER_ADDRESS: mongodb
       PORT: 8080
     runs-on: ubuntu-latest
-    container: 
-      image: node:20
     services:
       mongodb:
         image: mongo
